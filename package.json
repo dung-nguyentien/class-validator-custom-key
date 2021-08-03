@@ -1,6 +1,6 @@
 {
-  "name": "class-validator",
-  "version": "0.13.1",
+  "name": "@hodfords/class-validator",
+  "version": "0.13.2",
   "description": "Decorator-based property validation for classes.",
   "author": "TypeStack contributors",
   "license": "MIT",
@@ -27,13 +27,15 @@
     "build:cjs": "tsc --project tsconfig.prod.cjs.json",
     "build:umd": "rollup --config rollup.config.js",
     "build:types": "tsc --project tsconfig.prod.types.json",
+    "build:full": "npm run build:clean && npm run build:es2015 && npm run build:esm5 && npm run build:cjs && npm run build:umd && npm run build:types && cp package.json build/package.json",
     "prettier:fix": "prettier --write \"**/*.{ts,md}\"",
     "prettier:check": "prettier --check \"**/*.{ts,md}\"",
     "lint:fix": "eslint --max-warnings 0 --fix --ext .ts src/",
     "lint:check": "eslint --max-warnings 0 --ext .ts src/",
     "test": "jest --coverage --verbose",
     "test:watch": "jest --watch",
-    "test:ci": "jest --runInBand --no-cache --coverage --verbose"
+    "test:ci": "jest --runInBand --no-cache --coverage --verbose",
+    "deploy": "npm run build:full && npm publish build"
   },
   "dependencies": {
     "@types/validator": "^13.1.3",

@@ -59,7 +59,8 @@ export class ValidationExecutor {
       always,
       strictGroups,
       groups
-    );
+    ).reverse();
+
     const groupedMetadatas = this.metadataStorage.groupByPropertyName(targetMetadatas);
 
     if (this.validatorOptions && this.validatorOptions.forbidUnknownValues && !targetMetadatas.length) {

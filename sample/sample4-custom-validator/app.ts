@@ -6,13 +6,13 @@ let validator = new Validator();
 let post1 = new Post();
 post1.title = 'Hello world';
 
-validator.validate(post1).then(result => {
+validator.validate(post1, {stopAtFirstError: true}).then(result => {
   console.log('1. should not pass: ', result);
 });
-
-let post2 = new Post();
-post2.title = 'Hello !!!';
-
-validator.validate(post2).then(result => {
-  console.log('2. should pass: ', result);
-});
+//
+// let post2 = new Post();
+// post2.title = 'Hello !!!';
+//
+// validator.validate(post2).then(result => {
+//   console.log('2. should pass: ', result);
+// });

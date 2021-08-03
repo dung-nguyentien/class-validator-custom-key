@@ -1,5 +1,7 @@
 import { IsUserAlreadyExist } from './IsUserAlreadyExist';
 import { IsLongerThan } from './IsLongerThan';
+import { IsUUID } from '../../src';
+import { IsMaxLength } from './IsMaxLenght';
 
 export class User {
   @IsUserAlreadyExist({
@@ -11,4 +13,8 @@ export class User {
     message: "User's last name must be longer than firstName",
   })
   lastName: string;
+
+  @IsUUID('4', { each: true })
+  @IsMaxLength({each: true})
+  ids: string[];
 }
